@@ -1,0 +1,18 @@
+#emailForm {
+    text-align: center;
+    margin: 20px;
+}
+
+#recipient {
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+}
+
+#sendButton {
+    padding: 10px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
