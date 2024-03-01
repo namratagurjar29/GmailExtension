@@ -1,33 +1,36 @@
 {
-    "manifest_version": 3,
-    "name": "Bulk Email Extension",
-    "version": "1.0",
-    "description": "Chrome extension for bulk emailing via Gmail",
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
-      }
-    },
-    "icons": {
+  "manifest_version": 3,
+  "name": "Bulk Email Extension",
+  "version": "1.0",
+  "description": "Chrome extension for bulk emailing via Gmail",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
       "16": "images/icon16.png",
       "48": "images/icon48.png",
       "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://mail.google.com/"],
+  "content_security_policy": {
+      "script-src": ["self", "https://apis.google.com",  "unsafe-eval"],
+      "object-src": ["self"]
     },
-    "permissions": [
-      "activeTab",
-      "storage"
-    ],
-    "host_permissions": [
-      "https://mail.google.com/"
-    ],
-    "content_scripts": [
-      {
-        "matches": ["https://mail.google.com/*"],
-        "js": ["popup.js"]
-      }
-    ]
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["popup.js"]
+    }
+  ],
+  "oauth2": {
+    "client_id": "269520431952-dgee069upvj2un8e5mmre5526926dfnj.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/gmail.send"],
+    "redirect_uris": ["https://kfmkimegfkfgioojgdeijgcefhlgmdfd.chromiumapp.org/"]
   }
-  
+}
